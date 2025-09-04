@@ -1,0 +1,6 @@
+algorithm,best_roc_auc,best_accuracy,best_configuration,optimal_channels,optimal_balance,feature_categories,total_features,feature_efficiency,training_time_avg,performance_rank,recommended_use
+SVM (RBF),0.651,0.625,3-ch + oversample,[Fp1; Fp2; F3],oversample,"Chaos(11) + Time(6) + STFT(4)",63,High,0.027s,1,Production Deployment
+Random Forest,0.635,0.688,3-ch + oversample,[Fp1; Fp2; F3],oversample,"Chaos(11) + Time(6) + STFT(4)",63,High,0.589s,2,Interpretable ML
+Gradient Boosting,0.604,0.663,3-ch + none,[Fp1; Fp2; F3],none,"Chaos(11) + Time(6) + STFT(4)",63,Medium,0.367s,3,Ensemble Component
+K-Nearest Neighbors,0.593,0.625,3-ch + oversample,[Fp1; Fp2; F3],oversample,"Chaos(11) + Time(6) + STFT(4)",63,Medium,0.020s,4,Fast Prototyping
+Logistic Regression,0.487,0.488,4-ch + oversample,[Fp1; Fp2; F3; F4],oversample,"Chaos(11) + Time(6) + STFT(4)",84,Low,0.029s,5,Baseline Comparison

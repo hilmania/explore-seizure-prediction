@@ -1,0 +1,135 @@
+{
+  "config": {
+    "stats_metric": "roc_auc",
+    "feature_test_type": "permutation",
+    "n_train_samples": 200
+  },
+  "channel_significance": {
+    "metric": "roc_auc",
+    "n_permutations": 500,
+    "channels": {
+      "Fp1": {
+        "roc_auc": 0.654,
+        "p_value": 0.023,
+        "significant": true,
+        "n_features": 11
+      },
+      "Fp2": {
+        "roc_auc": 0.601,
+        "p_value": 0.087,
+        "significant": false,
+        "n_features": 11
+      },
+      "F3": {
+        "roc_auc": 0.672,
+        "p_value": 0.015,
+        "significant": true,
+        "n_features": 11
+      },
+      "F4": {
+        "roc_auc": 0.658,
+        "p_value": 0.028,
+        "significant": true,
+        "n_features": 11
+      },
+      "C3": {
+        "roc_auc": 0.589,
+        "p_value": 0.124,
+        "significant": false,
+        "n_features": 11
+      },
+      "C4": {
+        "roc_auc": 0.595,
+        "p_value": 0.098,
+        "significant": false,
+        "n_features": 11
+      },
+      "P3": {
+        "roc_auc": 0.633,
+        "p_value": 0.041,
+        "significant": true,
+        "n_features": 11
+      },
+      "P4": {
+        "roc_auc": 0.612,
+        "p_value": 0.067,
+        "significant": false,
+        "n_features": 11
+      }
+    }
+  },
+  "feature_significance": {
+    "baseline_score": 0.724,
+    "test_type": "permutation",
+    "metric": "roc_auc",
+    "n_permutations": 200,
+    "features": {
+      "Ch00_sampen": {
+        "importance": 0.045,
+        "std": 0.021,
+        "p_value": 0.012,
+        "significant": true
+      },
+      "Ch00_perm_ent": {
+        "importance": 0.038,
+        "std": 0.019,
+        "p_value": 0.025,
+        "significant": true
+      },
+      "Ch00_svd_ent": {
+        "importance": 0.031,
+        "std": 0.018,
+        "p_value": 0.043,
+        "significant": true
+      },
+      "Ch00_higuchi_fd": {
+        "importance": 0.022,
+        "std": 0.015,
+        "p_value": 0.089,
+        "significant": false
+      },
+      "Ch00_petrosian_fd": {
+        "importance": 0.019,
+        "std": 0.016,
+        "p_value": 0.134,
+        "significant": false
+      },
+      "Ch00_dfa": {
+        "importance": 0.041,
+        "std": 0.020,
+        "p_value": 0.018,
+        "significant": true
+      },
+      "Ch00_hurst": {
+        "importance": 0.035,
+        "std": 0.017,
+        "p_value": 0.032,
+        "significant": true
+      },
+      "Ch00_delta_power": {
+        "importance": 0.028,
+        "std": 0.014,
+        "p_value": 0.052,
+        "significant": false
+      },
+      "Ch00_theta_power": {
+        "importance": 0.033,
+        "std": 0.016,
+        "p_value": 0.038,
+        "significant": true
+      },
+      "Ch00_alpha_power": {
+        "importance": 0.024,
+        "std": 0.013,
+        "p_value": 0.071,
+        "significant": false
+      },
+      "Ch00_beta_power": {
+        "importance": 0.029,
+        "std": 0.015,
+        "p_value": 0.048,
+        "significant": true
+      }
+    }
+  }
+}
