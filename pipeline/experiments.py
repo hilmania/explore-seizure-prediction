@@ -486,6 +486,12 @@ def run_feature_selection_optimization(args) -> dict:
     print(f"[feature-selection] Total features available: {F_train.shape[1]}")
     print(f"[feature-selection] Selected channels: {selected_channels}")
 
+    # Check for NaN values and print info
+    nan_count = np.sum(np.isnan(F_train))
+    if nan_count > 0:
+        print(f"[feature-selection] Found {nan_count} NaN values in feature matrix")
+        print(f"[feature-selection] NaN will be handled by feature selector preprocessing")
+
     # Initialize feature selector
     selector = AdvancedFeatureSelector(random_state=cfg.model.random_state)
 

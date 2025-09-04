@@ -8,128 +8,105 @@
     "metric": "roc_auc",
     "n_permutations": 500,
     "channels": {
-      "Fp1": {
-        "roc_auc": 0.654,
-        "p_value": 0.023,
-        "significant": true,
-        "n_features": 11
-      },
-      "Fp2": {
-        "roc_auc": 0.601,
-        "p_value": 0.087,
+      "Ch_00": {
+        "roc_auc": 0.5680952380952381,
+        "p_value": 0.062,
         "significant": false,
         "n_features": 11
       },
-      "F3": {
-        "roc_auc": 0.672,
-        "p_value": 0.015,
+      "Ch_01": {
+        "roc_auc": 0.6280952380952382,
+        "p_value": 0.0,
         "significant": true,
         "n_features": 11
       },
-      "F4": {
-        "roc_auc": 0.658,
-        "p_value": 0.028,
+      "Ch_02": {
+        "roc_auc": 0.5623809523809524,
+        "p_value": 0.07,
+        "significant": false,
+        "n_features": 11
+      },
+      "Ch_03": {
+        "roc_auc": 0.6072619047619048,
+        "p_value": 0.01,
         "significant": true,
         "n_features": 11
       },
-      "C3": {
-        "roc_auc": 0.589,
-        "p_value": 0.124,
-        "significant": false,
-        "n_features": 11
-      },
-      "C4": {
-        "roc_auc": 0.595,
-        "p_value": 0.098,
-        "significant": false,
-        "n_features": 11
-      },
-      "P3": {
-        "roc_auc": 0.633,
-        "p_value": 0.041,
+      "Ch_04": {
+        "roc_auc": 0.6357142857142857,
+        "p_value": 0.0,
         "significant": true,
         "n_features": 11
       },
-      "P4": {
-        "roc_auc": 0.612,
-        "p_value": 0.067,
+      "Ch_05": {
+        "roc_auc": 0.6148809523809524,
+        "p_value": 0.002,
+        "significant": true,
+        "n_features": 11
+      },
+      "Ch_06": {
+        "roc_auc": 0.6217857142857143,
+        "p_value": 0.0,
+        "significant": true,
+        "n_features": 11
+      },
+      "Ch_07": {
+        "roc_auc": 0.6022619047619048,
+        "p_value": 0.008,
+        "significant": true,
+        "n_features": 11
+      },
+      "Ch_08": {
+        "roc_auc": 0.6261904761904762,
+        "p_value": 0.004,
+        "significant": true,
+        "n_features": 11
+      },
+      "Ch_09": {
+        "roc_auc": 0.6057142857142858,
+        "p_value": 0.01,
+        "significant": true,
+        "n_features": 11
+      },
+      "Ch_10": {
+        "roc_auc": 0.6333333333333334,
+        "p_value": 0.004,
+        "significant": true,
+        "n_features": 11
+      },
+      "Ch_11": {
+        "roc_auc": 0.5584523809523809,
+        "p_value": 0.114,
         "significant": false,
+        "n_features": 11
+      },
+      "Ch_12": {
+        "roc_auc": 0.6567857142857143,
+        "p_value": 0.0,
+        "significant": true,
+        "n_features": 11
+      },
+      "Ch_13": {
+        "roc_auc": 0.5791666666666666,
+        "p_value": 0.026,
+        "significant": true,
+        "n_features": 11
+      },
+      "Ch_14": {
+        "roc_auc": 0.6358333333333333,
+        "p_value": 0.0,
+        "significant": true,
+        "n_features": 11
+      },
+      "Ch_15": {
+        "roc_auc": 0.6133333333333334,
+        "p_value": 0.002,
+        "significant": true,
         "n_features": 11
       }
     }
   },
   "feature_significance": {
-    "baseline_score": 0.724,
-    "test_type": "permutation",
-    "metric": "roc_auc",
-    "n_permutations": 200,
-    "features": {
-      "Ch00_sampen": {
-        "importance": 0.045,
-        "std": 0.021,
-        "p_value": 0.012,
-        "significant": true
-      },
-      "Ch00_perm_ent": {
-        "importance": 0.038,
-        "std": 0.019,
-        "p_value": 0.025,
-        "significant": true
-      },
-      "Ch00_svd_ent": {
-        "importance": 0.031,
-        "std": 0.018,
-        "p_value": 0.043,
-        "significant": true
-      },
-      "Ch00_higuchi_fd": {
-        "importance": 0.022,
-        "std": 0.015,
-        "p_value": 0.089,
-        "significant": false
-      },
-      "Ch00_petrosian_fd": {
-        "importance": 0.019,
-        "std": 0.016,
-        "p_value": 0.134,
-        "significant": false
-      },
-      "Ch00_dfa": {
-        "importance": 0.041,
-        "std": 0.020,
-        "p_value": 0.018,
-        "significant": true
-      },
-      "Ch00_hurst": {
-        "importance": 0.035,
-        "std": 0.017,
-        "p_value": 0.032,
-        "significant": true
-      },
-      "Ch00_delta_power": {
-        "importance": 0.028,
-        "std": 0.014,
-        "p_value": 0.052,
-        "significant": false
-      },
-      "Ch00_theta_power": {
-        "importance": 0.033,
-        "std": 0.016,
-        "p_value": 0.038,
-        "significant": true
-      },
-      "Ch00_alpha_power": {
-        "importance": 0.024,
-        "std": 0.013,
-        "p_value": 0.071,
-        "significant": false
-      },
-      "Ch00_beta_power": {
-        "importance": 0.029,
-        "std": 0.015,
-        "p_value": 0.048,
-        "significant": true
-      }
-    }
+    "error": "Baseline calculation failed: Input X contains NaN.\nLogisticRegression does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values"
   }
 }

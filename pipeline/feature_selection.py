@@ -11,6 +11,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.svm import SVC
 from sklearn.metrics import get_scorer
 from sklearn.base import clone
+from sklearn.impute import SimpleImputer
 import warnings
 warnings.filterwarnings('ignore')
 
@@ -25,6 +26,40 @@ class AdvancedFeatureSelector:
         self.random_state = random_state
         self.feature_scores_ = {}
         self.selected_features_ = {}
+        self.imputer = SimpleImputer(strategy='median')
+
+    def _preprocess_features(self, X: np.ndarray, fit_imputer: bool = True) -> np.ndarray:
+        """
+        Preprocess features by handling NaN values and infinite values
+
+        Args:
+            X: Feature matrix that may contain NaN/inf values
+            fit_imputer: Whether to fit the imputer (True for training, False for transform)
+
+        Returns:
+            Cleaned feature matrix
+        """
+        # Convert to float to handle any data type issues
+        X = np.asarray(X, dtype=np.float64)
+
+        # Replace infinite values with NaN first
+        X = np.where(np.isfinite(X), X, np.nan)
+
+        # Check if there are any NaN values
+        if np.any(np.isnan(X)):
+            print(f"[feature-selection] Found {np.sum(np.isnan(X))} NaN values, imputing with median...")
+
+            if fit_imputer:
+                X = self.imputer.fit_transform(X)
+            else:
+                X = self.imputer.transform(X)
+
+        # Final check for any remaining problematic values
+        if not np.all(np.isfinite(X)):
+            print("[feature-selection] Warning: Some non-finite values remain, replacing with 0")
+            X = np.nan_to_num(X, nan=0.0, posinf=0.0, neginf=0.0)
+
+        return X
 
     def univariate_selection(
         self,
@@ -49,6 +84,9 @@ class AdvancedFeatureSelector:
         """
         if feature_names is None:
             feature_names = [f'feature_{i}' for i in range(X.shape[1])]
+
+        # Preprocess features to handle NaN values
+        X = self._preprocess_features(X, fit_imputer=True)
 
         # Choose scoring function
         if method == 'f_classif':
@@ -111,6 +149,9 @@ class AdvancedFeatureSelector:
         """
         if feature_names is None:
             feature_names = [f'feature_{i}' for i in range(X.shape[1])]
+
+        # Preprocess features to handle NaN values
+        X = self._preprocess_features(X, fit_imputer=True)
 
         # Choose estimator
         if estimator_type == 'rf':
@@ -198,6 +239,9 @@ class AdvancedFeatureSelector:
         if feature_names is None:
             feature_names = [f'feature_{i}' for i in range(X.shape[1])]
 
+        # Preprocess features to handle NaN values
+        X = self._preprocess_features(X, fit_imputer=True)
+
         # Choose estimator
         if estimator_type == 'rf':
             estimator = RandomForestClassifier(
@@ -270,6 +314,9 @@ class AdvancedFeatureSelector:
         if feature_names is None:
             feature_names = [f'feature_{i}' for i in range(X.shape[1])]
 
+        # Preprocess features to handle NaN values
+        X = self._preprocess_features(X, fit_imputer=True)
+
         selector = VarianceThreshold(threshold=threshold)
         X_selected = selector.fit_transform(X)
 
@@ -317,6 +364,9 @@ class AdvancedFeatureSelector:
         """
         if feature_names is None:
             feature_names = [f'feature_{i}' for i in range(X.shape[1])]
+
+        # Preprocess features to handle NaN values
+        X = self._preprocess_features(X, fit_imputer=True)
 
         # Choose estimator
         if estimator_type == 'rf':
@@ -413,6 +463,9 @@ class AdvancedFeatureSelector:
         """
         if feature_names is None:
             feature_names = [f'feature_{i}' for i in range(X.shape[1])]
+
+        # Preprocess features to handle NaN values
+        X = self._preprocess_features(X, fit_imputer=True)
 
         if methods is None:
             methods = ['univariate_f_classif', 'rfe_rf', 'model_rf']
@@ -511,6 +564,9 @@ def optimize_feature_combination(
         feature_names = [f'feature_{i}' for i in range(X.shape[1])]
 
     selector = AdvancedFeatureSelector()
+
+    # Preprocess features to handle NaN values
+    X = selector._preprocess_features(X, fit_imputer=True)
 
     # Test different numbers of features
     n_features_list = list(range(max_features_range[0],
